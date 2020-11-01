@@ -1,0 +1,100 @@
+﻿@model CompuMedia.ViewModel.UserViewModel
+
+@{
+    ViewData["Title"] = "User";
+}
+
+<link href="~/css/CssScreen/Screen.css" rel="stylesheet" />
+
+<div class="row" style="margin-bottom:50px"> New User</div>
+
+<form id="Frm">
+    <div class="row">
+        <div class="col-6">
+            <div class="input-group">
+                <div class="col-4">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="input-group">
+                <div class="col-4">
+                    <label asp-for="Email"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="input-group">
+                <div class="col-4">
+                    <label asp-for="Password"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="input-group">
+                <div class="col-4">
+                    <label asp-for="ConfirmPassword"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+
+        <input id="btnsave" type="button" value="Save" class="btn btn-success" /> &nbsp; &nbsp; &nbsp; <input id="New" type="button" value="Renew" class="btn btn-warning" />
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <table id="tb" class="">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+
+                        </th>
+
+                        <th>
+
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+@section Scripts
+{
+    <script>
+        var Users = JSON.parse('@Html.Raw(Json.Serialize(ViewBag.Data))');
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/JSScreen/User.js"></script>
+
+}
